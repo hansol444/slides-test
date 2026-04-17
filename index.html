@@ -6141,6 +6141,8 @@ html, body {
 
 <div class="print-buttons">
   <button onclick="window.print()">PDF</button>
+  <button id="edit-toggle" onclick="toggleEdit()">&#9998; Edit</button>
+  <button id="save-btn" onclick="saveAndPush()" style="display:none">&#128640; Save &amp; Push</button>
 </div>
 
 <div class="watermark">worxphere &copy; 2026 &middot; Confidential</div>
@@ -6287,6 +6289,45 @@ html, body {
   // Initialize
   go(0);
 })();
+
+// === Editor Mode ===
+var editMode = false;
+function toggleEdit() {
+  editMode = !editMode;
+  var inners = document.querySelectorAll('.slide-inner');
+  var btn = document.getElementById('edit-toggle');
+  var saveBtn = document.getElementById('save-btn');
+  inners.forEach(function(el) {
+    el.contentEditable = editMode;
+    el.style.outline = editMode ? '2px dashed #2563eb' : 'none';
+  });
+  btn.textContent = editMode ? '✕ Done' : '✎ Edit';
+  btn.style.background = editMode ? '#ef4444' : '';
+  saveBtn.style.display = editMode ? 'inline-block' : 'none';
+}
+
+function saveAndPush() {
+  // Save via local push server
+  fetch('http://localhost:4444/push', {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/html' },
+    body: document.documentElement.outerHTML
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(d) {
+    if (d.ok) alert('Push 완료! 1~2분 후 URL 업데이트됩니다.');
+    else alert('Push 실패: ' + d.error);
+  })
+  .catch(function() {
+    // Fallback: download file
+    var blob = new Blob(['<!DOCTYPE html>\n<html lang="ko">\n' + document.documentElement.innerHTML + '\n</html>'], {type:'text/html'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'index.html';
+    a.click();
+    alert('로컬 서버 없음. 파일 다운로드됨.\n서버 실행: node push-server.js');
+  });
+}
 
 </script>
 
