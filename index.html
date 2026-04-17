@@ -1,4 +1,4 @@
-<html lang="ko"><script id="CitrixBcrApi" src="chrome-extension://hdppkjifljbdpckfajcmlblbchhledln/CitrixBcrApi.js"></script><script src="chrome-extension://hdppkjifljbdpckfajcmlblbchhledln/VDIWebView.js"></script><head><script id="CitrixBcrApi" src="chrome-extension://hdppkjifljbdpckfajcmlblbchhledln/CitrixBcrApi.js"></script><script src="chrome-extension://hdppkjifljbdpckfajcmlblbchhledln/VDIWebView.js"></script><script id="CitrixBcrApi" src="chrome-extension://hdppkjifljbdpckfajcmlblbchhledln/CitrixBcrApi.js"></script><script src="chrome-extension://hdppkjifljbdpckfajcmlblbchhledln/VDIWebView.js"></script>
+<html lang="ko"><script id="CitrixBcrApi" src="chrome-extension://hdppkjifljbdpckfajcmlblbchhledln/CitrixBcrApi.js"></script><script src="chrome-extension://hdppkjifljbdpckfajcmlblbchhledln/VDIWebView.js"></script><head><script id="CitrixBcrApi" src="chrome-extension://hdppkjifljbdpckfajcmlblbchhledln/CitrixBcrApi.js"></script><script src="chrome-extension://hdppkjifljbdpckfajcmlblbchhledln/VDIWebView.js"></script><script id="CitrixBcrApi" src="chrome-extension://hdppkjifljbdpckfajcmlblbchhledln/CitrixBcrApi.js"></script><script src="chrome-extension://hdppkjifljbdpckfajcmlblbchhledln/VDIWebView.js"></script><script id="CitrixBcrApi" src="chrome-extension://hdppkjifljbdpckfajcmlblbchhledln/CitrixBcrApi.js"></script><script src="chrome-extension://hdppkjifljbdpckfajcmlblbchhledln/VDIWebView.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Strategy Discussion — Worxphere Value Creation Plan</title>
@@ -1217,37 +1217,6 @@ html, body {
 }
 .print-break { display: none; }
 
-
-/* --- Comment Panel --- */
-.comment-panel {
-  position: fixed; right: 0; top: var(--nav-h);
-  width: 300px; height: calc(100vh - var(--nav-h) - var(--bottom-h));
-  background: #fff; border-left: 1px solid var(--border);
-  box-shadow: -4px 0 16px rgba(0,0,0,0.08);
-  z-index: 90; display: none; flex-direction: column; font-size: 13px;
-}
-.comment-panel.open { display: flex; }
-.comment-panel-header {
-  padding: 12px 16px; font-weight: 700; font-size: 14px;
-  border-bottom: 1px solid var(--border);
-  display: flex; justify-content: space-between; align-items: center; color: var(--navy);
-}
-.comment-panel-header button { background: none; border: none; font-size: 18px; cursor: pointer; color: var(--muted); }
-.comment-list { flex: 1; overflow-y: auto; padding: 12px 16px; }
-.comment-item {
-  margin-bottom: 12px; padding: 8px 10px; background: var(--bg-alt);
-  border-radius: 6px; border-left: 3px solid var(--accent);
-}
-.comment-item .c-author { font-weight: 700; color: var(--navy); font-size: 12px; }
-.comment-item .c-time { font-size: 10px; color: var(--muted); margin-left: 6px; }
-.comment-item .c-text { margin-top: 4px; color: var(--body); line-height: 1.5; }
-.comment-item .c-del { float: right; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 12px; }
-.comment-item .c-del:hover { color: #ef4444; }
-.comment-input-area { padding: 12px 16px; border-top: 1px solid var(--border); }
-.comment-input-area input { width: 100%; padding: 6px 8px; border: 1px solid var(--border); border-radius: 4px; font-size: 12px; margin-bottom: 6px; }
-.comment-input-area textarea { width: 100%; height: 60px; padding: 6px 8px; border: 1px solid var(--border); border-radius: 4px; font-size: 12px; resize: none; }
-.comment-input-area button { margin-top: 6px; width: 100%; padding: 6px; background: var(--accent); color: #fff; border: none; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; }
-
 </style>
 
 <!-- ��영기획실 additional styles -->
@@ -2294,23 +2263,23 @@ html, body {
 </head>
 <body>
 
-<div class="progress-bar" id="progress" style="width: 7.01754%;"></div>
+<div class="progress-bar" id="progress" style="width: 1.75439%;"></div>
 
 <nav class="top-nav">
   <div class="logo">worxphere</div>
-  <div class="current-section" id="current-section">1-1 Rule of Game</div>
-  <div class="page-num"><span id="page-current">4</span> / <span id="page-total">57</span></div>
+  <div class="current-section" id="current-section">Overview</div>
+  <div class="page-num"><span id="page-current">1</span> / <span id="page-total">57</span></div>
 </nav>
 
 <aside class="toc-card">
   <div class="toc-title">Contents</div>
-  <div class="toc-l1 empty" data-chapter="0" onclick="go(0)">
+  <div class="toc-l1 empty active" data-chapter="0" onclick="go(0)">
     <span class="num">0.</span><span>Overview</span>
   </div>
-  <div class="toc-l1 active" data-chapter="1" onclick="go(1)">
+  <div class="toc-l1" data-chapter="1" onclick="go(1)">
     <span class="num">1.</span><span>AI AD Infra Company로의 전환이 Value Unlock의 유일한 경로</span>
   </div>
-  <div class="toc-l2-group expanded" id="toc-g1">
+  <div class="toc-l2-group" id="toc-g1">
     <div class="toc-l2" data-section="1-0" onclick="go(2)">
       <span class="num">1.1</span><span>Rule of Game</span>
     </div>
@@ -2414,7 +2383,7 @@ html, body {
   </div>
 </aside>
 
-<main class="slides-container" id="slides" style="transform: translateX(-300vw);">
+<main class="slides-container" id="slides" style="transform: translateX(0vw);">
 
   <!-- ===== SLIDE 0: s00_opening.html ===== -->
   <section class="slide" data-slide="0" data-chapter="0" data-section="0" data-section-label="Overview">
@@ -2441,11 +2410,11 @@ html, body {
         </tr>
         <tr>
           <td class="num"><strong>3</strong></td>
-          <td>근본 전환 없이는 Multiple 방어 불</td>
+          <td>안녕하세요~!</td>
         </tr>
         <tr>
           <td class="num"><strong>4</strong></td>
-          <td>2026 = AI AD Infra Lv1 원년 — 6월 말 첫 proof point, 이후의 모든 evidence layer가 이 위에 쌓인다</td>
+          <td>웅킥</td>
         </tr>
       </tbody>
     </table>
@@ -6175,27 +6144,11 @@ html, body {
 <div class="watermark">worxphere © 2026 · Confidential</div>
 
 <nav class="bottom-nav">
-  <button class="arrow" id="prev" aria-label="Previous">◀</button>
-  <div class="dots" id="dots"><div class="dot" data-index="0"></div><div class="dot mm" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot active" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div><div class="dot" data-index="6"></div><div class="dot" data-index="7"></div><div class="dot" data-index="8"></div><div class="dot" data-index="9"></div><div class="dot" data-index="10"></div><div class="dot" data-index="11"></div><div class="dot" data-index="12"></div><div class="dot" data-index="13"></div><div class="dot" data-index="14"></div><div class="dot" data-index="15"></div><div class="dot" data-index="16"></div><div class="dot mm" data-index="17"></div><div class="dot" data-index="18"></div><div class="dot" data-index="19"></div><div class="dot" data-index="20"></div><div class="dot" data-index="21"></div><div class="dot" data-index="22"></div><div class="dot mm" data-index="23"></div><div class="dot" data-index="24"></div><div class="dot" data-index="25"></div><div class="dot" data-index="26"></div><div class="dot" data-index="27"></div><div class="dot" data-index="28"></div><div class="dot" data-index="29"></div><div class="dot mm" data-index="30"></div><div class="dot" data-index="31"></div><div class="dot" data-index="32"></div><div class="dot" data-index="33"></div><div class="dot" data-index="34"></div><div class="dot" data-index="35"></div><div class="dot" data-index="36"></div><div class="dot" data-index="37"></div><div class="dot mm" data-index="38"></div><div class="dot" data-index="39"></div><div class="dot" data-index="40"></div><div class="dot" data-index="41"></div><div class="dot mm" data-index="42"></div><div class="dot" data-index="43"></div><div class="dot" data-index="44"></div><div class="dot" data-index="45"></div><div class="dot" data-index="46"></div><div class="dot mm" data-index="47"></div><div class="dot" data-index="48"></div><div class="dot" data-index="49"></div><div class="dot" data-index="50"></div><div class="dot" data-index="51"></div><div class="dot mm" data-index="52"></div><div class="dot" data-index="53"></div><div class="dot" data-index="54"></div><div class="dot" data-index="55"></div><div class="dot mm" data-index="56"></div><div class="dot" data-index="0"></div><div class="dot mm" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div><div class="dot" data-index="6"></div><div class="dot" data-index="7"></div><div class="dot" data-index="8"></div><div class="dot" data-index="9"></div><div class="dot" data-index="10"></div><div class="dot" data-index="11"></div><div class="dot" data-index="12"></div><div class="dot" data-index="13"></div><div class="dot" data-index="14"></div><div class="dot" data-index="15"></div><div class="dot" data-index="16"></div><div class="dot mm" data-index="17"></div><div class="dot" data-index="18"></div><div class="dot" data-index="19"></div><div class="dot" data-index="20"></div><div class="dot" data-index="21"></div><div class="dot" data-index="22"></div><div class="dot mm" data-index="23"></div><div class="dot" data-index="24"></div><div class="dot" data-index="25"></div><div class="dot" data-index="26"></div><div class="dot" data-index="27"></div><div class="dot" data-index="28"></div><div class="dot" data-index="29"></div><div class="dot mm" data-index="30"></div><div class="dot" data-index="31"></div><div class="dot" data-index="32"></div><div class="dot" data-index="33"></div><div class="dot" data-index="34"></div><div class="dot" data-index="35"></div><div class="dot" data-index="36"></div><div class="dot" data-index="37"></div><div class="dot mm" data-index="38"></div><div class="dot" data-index="39"></div><div class="dot" data-index="40"></div><div class="dot" data-index="41"></div><div class="dot mm" data-index="42"></div><div class="dot" data-index="43"></div><div class="dot" data-index="44"></div><div class="dot" data-index="45"></div><div class="dot" data-index="46"></div><div class="dot mm" data-index="47"></div><div class="dot" data-index="48"></div><div class="dot" data-index="49"></div><div class="dot" data-index="50"></div><div class="dot" data-index="51"></div><div class="dot mm" data-index="52"></div><div class="dot" data-index="53"></div><div class="dot" data-index="54"></div><div class="dot" data-index="55"></div><div class="dot mm" data-index="56"></div><div class="dot" data-index="0"></div><div class="dot mm" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div><div class="dot" data-index="6"></div><div class="dot" data-index="7"></div><div class="dot" data-index="8"></div><div class="dot" data-index="9"></div><div class="dot" data-index="10"></div><div class="dot" data-index="11"></div><div class="dot" data-index="12"></div><div class="dot" data-index="13"></div><div class="dot" data-index="14"></div><div class="dot" data-index="15"></div><div class="dot" data-index="16"></div><div class="dot mm" data-index="17"></div><div class="dot" data-index="18"></div><div class="dot" data-index="19"></div><div class="dot" data-index="20"></div><div class="dot" data-index="21"></div><div class="dot" data-index="22"></div><div class="dot mm" data-index="23"></div><div class="dot" data-index="24"></div><div class="dot" data-index="25"></div><div class="dot" data-index="26"></div><div class="dot" data-index="27"></div><div class="dot" data-index="28"></div><div class="dot" data-index="29"></div><div class="dot mm" data-index="30"></div><div class="dot" data-index="31"></div><div class="dot" data-index="32"></div><div class="dot" data-index="33"></div><div class="dot" data-index="34"></div><div class="dot" data-index="35"></div><div class="dot" data-index="36"></div><div class="dot" data-index="37"></div><div class="dot mm" data-index="38"></div><div class="dot" data-index="39"></div><div class="dot" data-index="40"></div><div class="dot" data-index="41"></div><div class="dot mm" data-index="42"></div><div class="dot" data-index="43"></div><div class="dot" data-index="44"></div><div class="dot" data-index="45"></div><div class="dot" data-index="46"></div><div class="dot mm" data-index="47"></div><div class="dot" data-index="48"></div><div class="dot" data-index="49"></div><div class="dot" data-index="50"></div><div class="dot" data-index="51"></div><div class="dot mm" data-index="52"></div><div class="dot" data-index="53"></div><div class="dot" data-index="54"></div><div class="dot" data-index="55"></div><div class="dot mm" data-index="56"></div><div class="dot" data-index="0"></div><div class="dot mm" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div><div class="dot" data-index="6"></div><div class="dot" data-index="7"></div><div class="dot" data-index="8"></div><div class="dot" data-index="9"></div><div class="dot" data-index="10"></div><div class="dot" data-index="11"></div><div class="dot" data-index="12"></div><div class="dot" data-index="13"></div><div class="dot" data-index="14"></div><div class="dot" data-index="15"></div><div class="dot" data-index="16"></div><div class="dot mm" data-index="17"></div><div class="dot" data-index="18"></div><div class="dot" data-index="19"></div><div class="dot" data-index="20"></div><div class="dot" data-index="21"></div><div class="dot" data-index="22"></div><div class="dot mm" data-index="23"></div><div class="dot" data-index="24"></div><div class="dot" data-index="25"></div><div class="dot" data-index="26"></div><div class="dot" data-index="27"></div><div class="dot" data-index="28"></div><div class="dot" data-index="29"></div><div class="dot mm" data-index="30"></div><div class="dot" data-index="31"></div><div class="dot" data-index="32"></div><div class="dot" data-index="33"></div><div class="dot" data-index="34"></div><div class="dot" data-index="35"></div><div class="dot" data-index="36"></div><div class="dot" data-index="37"></div><div class="dot mm" data-index="38"></div><div class="dot" data-index="39"></div><div class="dot" data-index="40"></div><div class="dot" data-index="41"></div><div class="dot mm" data-index="42"></div><div class="dot" data-index="43"></div><div class="dot" data-index="44"></div><div class="dot" data-index="45"></div><div class="dot" data-index="46"></div><div class="dot mm" data-index="47"></div><div class="dot" data-index="48"></div><div class="dot" data-index="49"></div><div class="dot" data-index="50"></div><div class="dot" data-index="51"></div><div class="dot mm" data-index="52"></div><div class="dot" data-index="53"></div><div class="dot" data-index="54"></div><div class="dot" data-index="55"></div><div class="dot mm" data-index="56"></div><div class="dot" data-index="0"></div><div class="dot mm" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div><div class="dot" data-index="6"></div><div class="dot" data-index="7"></div><div class="dot" data-index="8"></div><div class="dot" data-index="9"></div><div class="dot" data-index="10"></div><div class="dot" data-index="11"></div><div class="dot" data-index="12"></div><div class="dot" data-index="13"></div><div class="dot" data-index="14"></div><div class="dot" data-index="15"></div><div class="dot" data-index="16"></div><div class="dot mm" data-index="17"></div><div class="dot" data-index="18"></div><div class="dot" data-index="19"></div><div class="dot" data-index="20"></div><div class="dot" data-index="21"></div><div class="dot" data-index="22"></div><div class="dot mm" data-index="23"></div><div class="dot" data-index="24"></div><div class="dot" data-index="25"></div><div class="dot" data-index="26"></div><div class="dot" data-index="27"></div><div class="dot" data-index="28"></div><div class="dot" data-index="29"></div><div class="dot mm" data-index="30"></div><div class="dot" data-index="31"></div><div class="dot" data-index="32"></div><div class="dot" data-index="33"></div><div class="dot" data-index="34"></div><div class="dot" data-index="35"></div><div class="dot" data-index="36"></div><div class="dot" data-index="37"></div><div class="dot mm" data-index="38"></div><div class="dot" data-index="39"></div><div class="dot" data-index="40"></div><div class="dot" data-index="41"></div><div class="dot mm" data-index="42"></div><div class="dot" data-index="43"></div><div class="dot" data-index="44"></div><div class="dot" data-index="45"></div><div class="dot" data-index="46"></div><div class="dot mm" data-index="47"></div><div class="dot" data-index="48"></div><div class="dot" data-index="49"></div><div class="dot" data-index="50"></div><div class="dot" data-index="51"></div><div class="dot mm" data-index="52"></div><div class="dot" data-index="53"></div><div class="dot" data-index="54"></div><div class="dot" data-index="55"></div><div class="dot mm" data-index="56"></div><div class="dot" data-index="0"></div><div class="dot mm" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div><div class="dot" data-index="6"></div><div class="dot" data-index="7"></div><div class="dot" data-index="8"></div><div class="dot" data-index="9"></div><div class="dot" data-index="10"></div><div class="dot" data-index="11"></div><div class="dot" data-index="12"></div><div class="dot" data-index="13"></div><div class="dot" data-index="14"></div><div class="dot" data-index="15"></div><div class="dot" data-index="16"></div><div class="dot mm" data-index="17"></div><div class="dot" data-index="18"></div><div class="dot" data-index="19"></div><div class="dot" data-index="20"></div><div class="dot" data-index="21"></div><div class="dot" data-index="22"></div><div class="dot mm" data-index="23"></div><div class="dot" data-index="24"></div><div class="dot" data-index="25"></div><div class="dot" data-index="26"></div><div class="dot" data-index="27"></div><div class="dot" data-index="28"></div><div class="dot" data-index="29"></div><div class="dot mm" data-index="30"></div><div class="dot" data-index="31"></div><div class="dot" data-index="32"></div><div class="dot" data-index="33"></div><div class="dot" data-index="34"></div><div class="dot" data-index="35"></div><div class="dot" data-index="36"></div><div class="dot" data-index="37"></div><div class="dot mm" data-index="38"></div><div class="dot" data-index="39"></div><div class="dot" data-index="40"></div><div class="dot" data-index="41"></div><div class="dot mm" data-index="42"></div><div class="dot" data-index="43"></div><div class="dot" data-index="44"></div><div class="dot" data-index="45"></div><div class="dot" data-index="46"></div><div class="dot mm" data-index="47"></div><div class="dot" data-index="48"></div><div class="dot" data-index="49"></div><div class="dot" data-index="50"></div><div class="dot" data-index="51"></div><div class="dot mm" data-index="52"></div><div class="dot" data-index="53"></div><div class="dot" data-index="54"></div><div class="dot" data-index="55"></div><div class="dot mm" data-index="56"></div><div class="dot" data-index="0"></div><div class="dot mm" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div><div class="dot" data-index="6"></div><div class="dot" data-index="7"></div><div class="dot" data-index="8"></div><div class="dot" data-index="9"></div><div class="dot" data-index="10"></div><div class="dot" data-index="11"></div><div class="dot" data-index="12"></div><div class="dot" data-index="13"></div><div class="dot" data-index="14"></div><div class="dot" data-index="15"></div><div class="dot" data-index="16"></div><div class="dot mm" data-index="17"></div><div class="dot" data-index="18"></div><div class="dot" data-index="19"></div><div class="dot" data-index="20"></div><div class="dot" data-index="21"></div><div class="dot" data-index="22"></div><div class="dot mm" data-index="23"></div><div class="dot" data-index="24"></div><div class="dot" data-index="25"></div><div class="dot" data-index="26"></div><div class="dot" data-index="27"></div><div class="dot" data-index="28"></div><div class="dot" data-index="29"></div><div class="dot mm" data-index="30"></div><div class="dot" data-index="31"></div><div class="dot" data-index="32"></div><div class="dot" data-index="33"></div><div class="dot" data-index="34"></div><div class="dot" data-index="35"></div><div class="dot" data-index="36"></div><div class="dot" data-index="37"></div><div class="dot mm" data-index="38"></div><div class="dot" data-index="39"></div><div class="dot" data-index="40"></div><div class="dot" data-index="41"></div><div class="dot mm" data-index="42"></div><div class="dot" data-index="43"></div><div class="dot" data-index="44"></div><div class="dot" data-index="45"></div><div class="dot" data-index="46"></div><div class="dot mm" data-index="47"></div><div class="dot" data-index="48"></div><div class="dot" data-index="49"></div><div class="dot" data-index="50"></div><div class="dot" data-index="51"></div><div class="dot mm" data-index="52"></div><div class="dot" data-index="53"></div><div class="dot" data-index="54"></div><div class="dot" data-index="55"></div><div class="dot mm" data-index="56"></div></div>
+  <button class="arrow" id="prev" aria-label="Previous" disabled="">◀</button>
+  <div class="dots" id="dots"><div class="dot active" data-index="0"></div><div class="dot mm" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div><div class="dot" data-index="6"></div><div class="dot" data-index="7"></div><div class="dot" data-index="8"></div><div class="dot" data-index="9"></div><div class="dot" data-index="10"></div><div class="dot" data-index="11"></div><div class="dot" data-index="12"></div><div class="dot" data-index="13"></div><div class="dot" data-index="14"></div><div class="dot" data-index="15"></div><div class="dot" data-index="16"></div><div class="dot mm" data-index="17"></div><div class="dot" data-index="18"></div><div class="dot" data-index="19"></div><div class="dot" data-index="20"></div><div class="dot" data-index="21"></div><div class="dot" data-index="22"></div><div class="dot mm" data-index="23"></div><div class="dot" data-index="24"></div><div class="dot" data-index="25"></div><div class="dot" data-index="26"></div><div class="dot" data-index="27"></div><div class="dot" data-index="28"></div><div class="dot" data-index="29"></div><div class="dot mm" data-index="30"></div><div class="dot" data-index="31"></div><div class="dot" data-index="32"></div><div class="dot" data-index="33"></div><div class="dot" data-index="34"></div><div class="dot" data-index="35"></div><div class="dot" data-index="36"></div><div class="dot" data-index="37"></div><div class="dot mm" data-index="38"></div><div class="dot" data-index="39"></div><div class="dot" data-index="40"></div><div class="dot" data-index="41"></div><div class="dot mm" data-index="42"></div><div class="dot" data-index="43"></div><div class="dot" data-index="44"></div><div class="dot" data-index="45"></div><div class="dot" data-index="46"></div><div class="dot mm" data-index="47"></div><div class="dot" data-index="48"></div><div class="dot" data-index="49"></div><div class="dot" data-index="50"></div><div class="dot" data-index="51"></div><div class="dot mm" data-index="52"></div><div class="dot" data-index="53"></div><div class="dot" data-index="54"></div><div class="dot" data-index="55"></div><div class="dot mm" data-index="56"></div><div class="dot" data-index="0"></div><div class="dot mm" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div><div class="dot" data-index="6"></div><div class="dot" data-index="7"></div><div class="dot" data-index="8"></div><div class="dot" data-index="9"></div><div class="dot" data-index="10"></div><div class="dot" data-index="11"></div><div class="dot" data-index="12"></div><div class="dot" data-index="13"></div><div class="dot" data-index="14"></div><div class="dot" data-index="15"></div><div class="dot" data-index="16"></div><div class="dot mm" data-index="17"></div><div class="dot" data-index="18"></div><div class="dot" data-index="19"></div><div class="dot" data-index="20"></div><div class="dot" data-index="21"></div><div class="dot" data-index="22"></div><div class="dot mm" data-index="23"></div><div class="dot" data-index="24"></div><div class="dot" data-index="25"></div><div class="dot" data-index="26"></div><div class="dot" data-index="27"></div><div class="dot" data-index="28"></div><div class="dot" data-index="29"></div><div class="dot mm" data-index="30"></div><div class="dot" data-index="31"></div><div class="dot" data-index="32"></div><div class="dot" data-index="33"></div><div class="dot" data-index="34"></div><div class="dot" data-index="35"></div><div class="dot" data-index="36"></div><div class="dot" data-index="37"></div><div class="dot mm" data-index="38"></div><div class="dot" data-index="39"></div><div class="dot" data-index="40"></div><div class="dot" data-index="41"></div><div class="dot mm" data-index="42"></div><div class="dot" data-index="43"></div><div class="dot" data-index="44"></div><div class="dot" data-index="45"></div><div class="dot" data-index="46"></div><div class="dot mm" data-index="47"></div><div class="dot" data-index="48"></div><div class="dot" data-index="49"></div><div class="dot" data-index="50"></div><div class="dot" data-index="51"></div><div class="dot mm" data-index="52"></div><div class="dot" data-index="53"></div><div class="dot" data-index="54"></div><div class="dot" data-index="55"></div><div class="dot mm" data-index="56"></div><div class="dot" data-index="0"></div><div class="dot mm" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div><div class="dot" data-index="6"></div><div class="dot" data-index="7"></div><div class="dot" data-index="8"></div><div class="dot" data-index="9"></div><div class="dot" data-index="10"></div><div class="dot" data-index="11"></div><div class="dot" data-index="12"></div><div class="dot" data-index="13"></div><div class="dot" data-index="14"></div><div class="dot" data-index="15"></div><div class="dot" data-index="16"></div><div class="dot mm" data-index="17"></div><div class="dot" data-index="18"></div><div class="dot" data-index="19"></div><div class="dot" data-index="20"></div><div class="dot" data-index="21"></div><div class="dot" data-index="22"></div><div class="dot mm" data-index="23"></div><div class="dot" data-index="24"></div><div class="dot" data-index="25"></div><div class="dot" data-index="26"></div><div class="dot" data-index="27"></div><div class="dot" data-index="28"></div><div class="dot" data-index="29"></div><div class="dot mm" data-index="30"></div><div class="dot" data-index="31"></div><div class="dot" data-index="32"></div><div class="dot" data-index="33"></div><div class="dot" data-index="34"></div><div class="dot" data-index="35"></div><div class="dot" data-index="36"></div><div class="dot" data-index="37"></div><div class="dot mm" data-index="38"></div><div class="dot" data-index="39"></div><div class="dot" data-index="40"></div><div class="dot" data-index="41"></div><div class="dot mm" data-index="42"></div><div class="dot" data-index="43"></div><div class="dot" data-index="44"></div><div class="dot" data-index="45"></div><div class="dot" data-index="46"></div><div class="dot mm" data-index="47"></div><div class="dot" data-index="48"></div><div class="dot" data-index="49"></div><div class="dot" data-index="50"></div><div class="dot" data-index="51"></div><div class="dot mm" data-index="52"></div><div class="dot" data-index="53"></div><div class="dot" data-index="54"></div><div class="dot" data-index="55"></div><div class="dot mm" data-index="56"></div><div class="dot" data-index="0"></div><div class="dot mm" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div><div class="dot" data-index="6"></div><div class="dot" data-index="7"></div><div class="dot" data-index="8"></div><div class="dot" data-index="9"></div><div class="dot" data-index="10"></div><div class="dot" data-index="11"></div><div class="dot" data-index="12"></div><div class="dot" data-index="13"></div><div class="dot" data-index="14"></div><div class="dot" data-index="15"></div><div class="dot" data-index="16"></div><div class="dot mm" data-index="17"></div><div class="dot" data-index="18"></div><div class="dot" data-index="19"></div><div class="dot" data-index="20"></div><div class="dot" data-index="21"></div><div class="dot" data-index="22"></div><div class="dot mm" data-index="23"></div><div class="dot" data-index="24"></div><div class="dot" data-index="25"></div><div class="dot" data-index="26"></div><div class="dot" data-index="27"></div><div class="dot" data-index="28"></div><div class="dot" data-index="29"></div><div class="dot mm" data-index="30"></div><div class="dot" data-index="31"></div><div class="dot" data-index="32"></div><div class="dot" data-index="33"></div><div class="dot" data-index="34"></div><div class="dot" data-index="35"></div><div class="dot" data-index="36"></div><div class="dot" data-index="37"></div><div class="dot mm" data-index="38"></div><div class="dot" data-index="39"></div><div class="dot" data-index="40"></div><div class="dot" data-index="41"></div><div class="dot mm" data-index="42"></div><div class="dot" data-index="43"></div><div class="dot" data-index="44"></div><div class="dot" data-index="45"></div><div class="dot" data-index="46"></div><div class="dot mm" data-index="47"></div><div class="dot" data-index="48"></div><div class="dot" data-index="49"></div><div class="dot" data-index="50"></div><div class="dot" data-index="51"></div><div class="dot mm" data-index="52"></div><div class="dot" data-index="53"></div><div class="dot" data-index="54"></div><div class="dot" data-index="55"></div><div class="dot mm" data-index="56"></div><div class="dot" data-index="0"></div><div class="dot mm" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div><div class="dot" data-index="6"></div><div class="dot" data-index="7"></div><div class="dot" data-index="8"></div><div class="dot" data-index="9"></div><div class="dot" data-index="10"></div><div class="dot" data-index="11"></div><div class="dot" data-index="12"></div><div class="dot" data-index="13"></div><div class="dot" data-index="14"></div><div class="dot" data-index="15"></div><div class="dot" data-index="16"></div><div class="dot mm" data-index="17"></div><div class="dot" data-index="18"></div><div class="dot" data-index="19"></div><div class="dot" data-index="20"></div><div class="dot" data-index="21"></div><div class="dot" data-index="22"></div><div class="dot mm" data-index="23"></div><div class="dot" data-index="24"></div><div class="dot" data-index="25"></div><div class="dot" data-index="26"></div><div class="dot" data-index="27"></div><div class="dot" data-index="28"></div><div class="dot" data-index="29"></div><div class="dot mm" data-index="30"></div><div class="dot" data-index="31"></div><div class="dot" data-index="32"></div><div class="dot" data-index="33"></div><div class="dot" data-index="34"></div><div class="dot" data-index="35"></div><div class="dot" data-index="36"></div><div class="dot" data-index="37"></div><div class="dot mm" data-index="38"></div><div class="dot" data-index="39"></div><div class="dot" data-index="40"></div><div class="dot" data-index="41"></div><div class="dot mm" data-index="42"></div><div class="dot" data-index="43"></div><div class="dot" data-index="44"></div><div class="dot" data-index="45"></div><div class="dot" data-index="46"></div><div class="dot mm" data-index="47"></div><div class="dot" data-index="48"></div><div class="dot" data-index="49"></div><div class="dot" data-index="50"></div><div class="dot" data-index="51"></div><div class="dot mm" data-index="52"></div><div class="dot" data-index="53"></div><div class="dot" data-index="54"></div><div class="dot" data-index="55"></div><div class="dot mm" data-index="56"></div><div class="dot" data-index="0"></div><div class="dot mm" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div><div class="dot" data-index="6"></div><div class="dot" data-index="7"></div><div class="dot" data-index="8"></div><div class="dot" data-index="9"></div><div class="dot" data-index="10"></div><div class="dot" data-index="11"></div><div class="dot" data-index="12"></div><div class="dot" data-index="13"></div><div class="dot" data-index="14"></div><div class="dot" data-index="15"></div><div class="dot" data-index="16"></div><div class="dot mm" data-index="17"></div><div class="dot" data-index="18"></div><div class="dot" data-index="19"></div><div class="dot" data-index="20"></div><div class="dot" data-index="21"></div><div class="dot" data-index="22"></div><div class="dot mm" data-index="23"></div><div class="dot" data-index="24"></div><div class="dot" data-index="25"></div><div class="dot" data-index="26"></div><div class="dot" data-index="27"></div><div class="dot" data-index="28"></div><div class="dot" data-index="29"></div><div class="dot mm" data-index="30"></div><div class="dot" data-index="31"></div><div class="dot" data-index="32"></div><div class="dot" data-index="33"></div><div class="dot" data-index="34"></div><div class="dot" data-index="35"></div><div class="dot" data-index="36"></div><div class="dot" data-index="37"></div><div class="dot mm" data-index="38"></div><div class="dot" data-index="39"></div><div class="dot" data-index="40"></div><div class="dot" data-index="41"></div><div class="dot mm" data-index="42"></div><div class="dot" data-index="43"></div><div class="dot" data-index="44"></div><div class="dot" data-index="45"></div><div class="dot" data-index="46"></div><div class="dot mm" data-index="47"></div><div class="dot" data-index="48"></div><div class="dot" data-index="49"></div><div class="dot" data-index="50"></div><div class="dot" data-index="51"></div><div class="dot mm" data-index="52"></div><div class="dot" data-index="53"></div><div class="dot" data-index="54"></div><div class="dot" data-index="55"></div><div class="dot mm" data-index="56"></div><div class="dot" data-index="0"></div><div class="dot mm" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div><div class="dot" data-index="6"></div><div class="dot" data-index="7"></div><div class="dot" data-index="8"></div><div class="dot" data-index="9"></div><div class="dot" data-index="10"></div><div class="dot" data-index="11"></div><div class="dot" data-index="12"></div><div class="dot" data-index="13"></div><div class="dot" data-index="14"></div><div class="dot" data-index="15"></div><div class="dot" data-index="16"></div><div class="dot mm" data-index="17"></div><div class="dot" data-index="18"></div><div class="dot" data-index="19"></div><div class="dot" data-index="20"></div><div class="dot" data-index="21"></div><div class="dot" data-index="22"></div><div class="dot mm" data-index="23"></div><div class="dot" data-index="24"></div><div class="dot" data-index="25"></div><div class="dot" data-index="26"></div><div class="dot" data-index="27"></div><div class="dot" data-index="28"></div><div class="dot" data-index="29"></div><div class="dot mm" data-index="30"></div><div class="dot" data-index="31"></div><div class="dot" data-index="32"></div><div class="dot" data-index="33"></div><div class="dot" data-index="34"></div><div class="dot" data-index="35"></div><div class="dot" data-index="36"></div><div class="dot" data-index="37"></div><div class="dot mm" data-index="38"></div><div class="dot" data-index="39"></div><div class="dot" data-index="40"></div><div class="dot" data-index="41"></div><div class="dot mm" data-index="42"></div><div class="dot" data-index="43"></div><div class="dot" data-index="44"></div><div class="dot" data-index="45"></div><div class="dot" data-index="46"></div><div class="dot mm" data-index="47"></div><div class="dot" data-index="48"></div><div class="dot" data-index="49"></div><div class="dot" data-index="50"></div><div class="dot" data-index="51"></div><div class="dot mm" data-index="52"></div><div class="dot" data-index="53"></div><div class="dot" data-index="54"></div><div class="dot" data-index="55"></div><div class="dot mm" data-index="56"></div><div class="dot" data-index="0"></div><div class="dot mm" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div><div class="dot" data-index="6"></div><div class="dot" data-index="7"></div><div class="dot" data-index="8"></div><div class="dot" data-index="9"></div><div class="dot" data-index="10"></div><div class="dot" data-index="11"></div><div class="dot" data-index="12"></div><div class="dot" data-index="13"></div><div class="dot" data-index="14"></div><div class="dot" data-index="15"></div><div class="dot" data-index="16"></div><div class="dot mm" data-index="17"></div><div class="dot" data-index="18"></div><div class="dot" data-index="19"></div><div class="dot" data-index="20"></div><div class="dot" data-index="21"></div><div class="dot" data-index="22"></div><div class="dot mm" data-index="23"></div><div class="dot" data-index="24"></div><div class="dot" data-index="25"></div><div class="dot" data-index="26"></div><div class="dot" data-index="27"></div><div class="dot" data-index="28"></div><div class="dot" data-index="29"></div><div class="dot mm" data-index="30"></div><div class="dot" data-index="31"></div><div class="dot" data-index="32"></div><div class="dot" data-index="33"></div><div class="dot" data-index="34"></div><div class="dot" data-index="35"></div><div class="dot" data-index="36"></div><div class="dot" data-index="37"></div><div class="dot mm" data-index="38"></div><div class="dot" data-index="39"></div><div class="dot" data-index="40"></div><div class="dot" data-index="41"></div><div class="dot mm" data-index="42"></div><div class="dot" data-index="43"></div><div class="dot" data-index="44"></div><div class="dot" data-index="45"></div><div class="dot" data-index="46"></div><div class="dot mm" data-index="47"></div><div class="dot" data-index="48"></div><div class="dot" data-index="49"></div><div class="dot" data-index="50"></div><div class="dot" data-index="51"></div><div class="dot mm" data-index="52"></div><div class="dot" data-index="53"></div><div class="dot" data-index="54"></div><div class="dot" data-index="55"></div><div class="dot mm" data-index="56"></div></div>
   <button class="arrow" id="next" aria-label="Next">▶</button>
   <button class="fullscreen" id="fs" aria-label="Toggle Fullscreen">⚶</button>
 </nav>
-
-
-<div class="comment-panel" id="comment-panel">
-  <div class="comment-panel-header">
-    <span id="comment-title">Comments</span>
-    <button onclick="closeComments()">&times;</button>
-  </div>
-  <div class="comment-list" id="comment-list"></div>
-  <div class="comment-input-area">
-    <input type="text" id="comment-author" placeholder="이름" />
-    <textarea id="comment-text" placeholder="코멘트 입력..."></textarea>
-    <button onclick="addComment()">등록</button>
-  </div>
-</div>
-
-<script type="application/json" id="comments-data">{}</script>
 
 <script>
 (function() {
@@ -6383,96 +6336,6 @@ function saveAndPush() {
     alert('로컬 서버 없음. 파일 다운로드됨.\n서버 실행: node push-server.js');
   });
 }
-
-
-// === Comment System ===
-var commentSlide = -1;
-
-function openComments(slideIdx) {
-  commentSlide = slideIdx;
-  var panel = document.getElementById('comment-panel');
-  var title = document.getElementById('comment-title');
-  title.textContent = 'Slide ' + (slideIdx + 1) + ' Comments';
-  panel.classList.add('open');
-  renderComments();
-}
-
-function closeComments() {
-  document.getElementById('comment-panel').classList.remove('open');
-}
-
-function getComments() {
-  var el = document.getElementById('comments-data');
-  try { return JSON.parse(el.textContent || '{}'); } catch(e) { return {}; }
-}
-
-function saveComments(data) {
-  document.getElementById('comments-data').textContent = JSON.stringify(data);
-  hasChanges = true;
-}
-
-function renderComments() {
-  var data = getComments();
-  var list = document.getElementById('comment-list');
-  var items = data[commentSlide] || [];
-  list.innerHTML = items.map(function(c, i) {
-    return '<div class="comment-item">'
-      + '<button class="c-del" onclick="delComment(' + i + ')">&times;</button>'
-      + '<span class="c-author">' + c.author + '</span>'
-      + '<span class="c-time">' + c.time + '</span>'
-      + '<div class="c-text">' + c.text + '</div>'
-      + '</div>';
-  }).join('');
-}
-
-function addComment() {
-  var author = document.getElementById('comment-author').value.trim();
-  var text = document.getElementById('comment-text').value.trim();
-  if (!author || !text) return;
-  var data = getComments();
-  if (!data[commentSlide]) data[commentSlide] = [];
-  data[commentSlide].push({
-    author: author,
-    text: text,
-    time: new Date().toLocaleString('ko-KR')
-  });
-  saveComments(data);
-  document.getElementById('comment-text').value = '';
-  renderComments();
-  updateBadges();
-}
-
-function delComment(idx) {
-  var data = getComments();
-  if (data[commentSlide]) {
-    data[commentSlide].splice(idx, 1);
-    if (data[commentSlide].length === 0) delete data[commentSlide];
-    saveComments(data);
-    renderComments();
-    updateBadges();
-  }
-}
-
-function updateBadges() {
-  var data = getComments();
-  document.querySelectorAll('.slide').forEach(function(s, i) {
-    var badge = s.querySelector('.comment-badge');
-    if (!badge) {
-      badge = document.createElement('div');
-      badge.className = 'comment-badge';
-      badge.onclick = function(e) { e.stopPropagation(); openComments(i); };
-      s.style.position = 'relative';
-      s.appendChild(badge);
-    }
-    var count = (data[i] || []).length;
-    badge.textContent = count > 0 ? count : '💬';
-    badge.style.display = 'flex';
-    badge.style.background = count > 0 ? '#ef4444' : 'var(--muted)';
-  });
-}
-
-// Init badges
-setTimeout(updateBadges, 500);
 
 </script>
 
