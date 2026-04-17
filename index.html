@@ -6467,7 +6467,8 @@ function saveCommentToGH() {
 
 function renderComments() {
   var list = document.getElementById('comment-list');
-  var items = commentCache[commentSlide] || [];
+  if (!commentCache) commentCache = {};
+  var items = commentCache[String(commentSlide)] || [];
   list.innerHTML = items.length === 0
     ? '<div style="color:var(--muted);text-align:center;padding:20px;">코멘트 없음</div>'
     : items.map(function(c, i) {
@@ -6484,17 +6485,20 @@ function addComment() {
   var author = document.getElementById('comment-author').value.trim();
   var text = document.getElementById('comment-text').value.trim();
   if (!author || !text) return;
-  if (!commentCache[commentSlide]) commentCache[commentSlide] = [];
-  commentCache[commentSlide].push({ author: author, text: text, time: new Date().toLocaleString('ko-KR') });
+  if (!commentCache || typeof commentCache !== 'object') commentCache = {};
+  var key = String(commentSlide);
+  if (!commentCache[key]) commentCache[key] = [];
+  commentCache[key].push({ author: author, text: text, time: new Date().toLocaleString('ko-KR') });
   document.getElementById('comment-text').value = '';
   renderComments();
   saveCommentToGH();
 }
 
 function delComment(idx) {
-  if (commentCache[commentSlide]) {
-    commentCache[commentSlide].splice(idx, 1);
-    if (commentCache[commentSlide].length === 0) delete commentCache[commentSlide];
+  var key = String(commentSlide);
+  if (commentCache && commentCache[key]) {
+    commentCache[key].splice(idx, 1);
+    if (commentCache[key].length === 0) delete commentCache[key];
     renderComments();
     saveCommentToGH();
   }
