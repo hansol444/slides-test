@@ -6338,6 +6338,76 @@ function saveAndPush() {
   });
 }
 
+// === Comment System ===
+var commentSlide = 0;
+
+function syncComments(slideIdx) {
+  commentSlide = slideIdx;
+  var title = document.getElementById('comment-title');
+  title.textContent = 'Slide ' + (slideIdx + 1) + ' Comments';
+  renderComments();
+}
+
+function getComments(cb) {
+  fetch('comment.json?t=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(d) { cb(d); })
+    .catch(function() { cb({}); });
+}
+
+function saveComments(data) {
+  fetch('http://localhost:4444/comment', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).then(function(r) { return r.json(); })
+    .then(function(d) { if (d.ok) console.log('Comment saved'); })
+    .catch(function() { alert('Push server not running. Run: node push-server.js'); });
+}
+
+function renderComments() {
+  getComments(function(data) {
+    var list = document.getElementById('comment-list');
+    var items = data[commentSlide] || [];
+    list.innerHTML = items.length === 0
+      ? '<div style="color:var(--muted);text-align:center;padding:20px;">코멘트 없음</div>'
+      : items.map(function(c, i) {
+        return '<div class="comment-item">'
+          + '<button class="c-del" onclick="delComment(' + i + ')">&times;</button>'
+          + '<span class="c-author">' + c.author + '</span>'
+          + '<span class="c-time">' + c.time + '</span>'
+          + '<div class="c-text">' + c.text + '</div>'
+          + '</div>';
+      }).join('');
+  });
+}
+
+function addComment() {
+  var author = document.getElementById('comment-author').value.trim();
+  var text = document.getElementById('comment-text').value.trim();
+  if (!author || !text) return;
+  getComments(function(data) {
+    if (!data[commentSlide]) data[commentSlide] = [];
+    data[commentSlide].push({ author: author, text: text, time: new Date().toLocaleString('ko-KR') });
+    saveComments(data);
+    document.getElementById('comment-text').value = '';
+    renderComments();
+  });
+}
+
+function delComment(idx) {
+  getComments(function(data) {
+    if (data[commentSlide]) {
+      data[commentSlide].splice(idx, 1);
+      if (data[commentSlide].length === 0) delete data[commentSlide];
+      saveComments(data);
+      renderComments();
+    }
+  });
+}
+
+setTimeout(function() { syncComments(0); }, 500);
+
 </script>
 
 
