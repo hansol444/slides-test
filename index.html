@@ -6141,6 +6141,18 @@ html, body {
   <button id="save-btn" onclick="saveAndPush()" style="background:#16a34a; color:#fff; border:1px solid #16a34a;">🚀 Push</button>
 </div>
 
+<div class="comment-panel open" id="comment-panel">
+  <div class="comment-panel-header">
+    <span id="comment-title">Slide 1 Comments</span>
+  </div>
+  <div class="comment-list" id="comment-list"></div>
+  <div class="comment-input-area">
+    <input type="text" id="comment-author" placeholder="이름" />
+    <textarea id="comment-text" placeholder="코멘트 입력..."></textarea>
+    <button onclick="addComment()">등록</button>
+  </div>
+</div>
+
 <div class="watermark">worxphere © 2026 · Confidential</div>
 
 <nav class="bottom-nav">
