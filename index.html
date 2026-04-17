@@ -1249,6 +1249,16 @@ html, body {
 @media print {
   .comment-panel { display: none !important; }
 }
+.toast {
+  position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+  padding: 10px 24px; border-radius: 8px; font-size: 13px; font-weight: 600;
+  z-index: 9999; opacity: 0; transition: opacity 0.3s;
+  pointer-events: none; color: #fff;
+}
+.toast.show { opacity: 1; }
+.toast.ok { background: #16a34a; }
+.toast.err { background: #ef4444; }
+.toast.info { background: #2563eb; }
 
 </style>
 
@@ -6174,6 +6184,8 @@ html, body {
   <button id="save-btn" onclick="saveAndPush()" style="background:#16a34a; color:#fff; border:1px solid #16a34a;">🚀 Push</button>
 </div>
 
+<div class="toast" id="toast"></div>
+
 <div class="comment-panel open" id="comment-panel">
   <div class="comment-panel-header">
     <span id="comment-title">Slide 1 Comments</span>
@@ -6417,6 +6429,13 @@ function ghEncode(str) {
 }
 
 // === Push (GitHub API) ===
+function toast(msg, type) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast ' + (type || 'info') + ' show';
+  setTimeout(function() { t.className = 'toast'; }, 3000);
+}
+
 function saveAndPush() {
   if (!ensureToken()) return;
   var sl = window._slides;
@@ -6430,7 +6449,7 @@ function saveAndPush() {
     }
   });
 
-  if (Object.keys(edits).length === 0) { alert('변경사항 없음'); return; }
+  if (Object.keys(edits).length === 0) { toast('변경사항 없음', 'info'); return; }
 
   // 1. 원본 파일 메타데이터 + 다운로드
   fetch(GH_API + 'index.html', { headers: ghHeaders() })
@@ -6477,9 +6496,9 @@ function saveAndPush() {
         });
       });
     })
-    .then(function() { alert('Push 완료! 10~20초 후 반영.'); })
+    .then(function() { toast('Push 완료! 10~20초 후 반영', 'ok'); })
     .catch(function(e) {
-      alert('Push 실패: ' + e.message);
+      toast('Push 실패: ' + e.message, 'err');
       if (e.message.indexOf('토큰') >= 0) localStorage.removeItem('gh_token');
     });
 }
@@ -6519,7 +6538,7 @@ function saveCommentToGH() {
   })
   .then(function(r) { return r.json(); })
   .then(function(d) { if (d.content) commentSha = d.content.sha; })
-  .catch(function(e) { alert('Comment 저장 실패'); });
+  .catch(function(e) { toast('Comment 저장 실패', 'err'); });
 }
 
 function renderComments() {
