@@ -6214,7 +6214,27 @@ html, body {
 
   let current = 0;
 
-  // Generate dot indicators
+  // === Virtualization: cache slide content, render only nearby ===
+  var slideCache = [];
+  slides.forEach(function(s, i) { slideCache[i] = s.innerHTML; });
+
+  function virtualize(idx) {
+    var RANGE = 1;
+    slides.forEach(function(s, i) {
+      if (Math.abs(i - idx) <= RANGE) {
+        if (!s.innerHTML || s.dataset.virtualized === 'true') {
+          s.innerHTML = slideCache[i];
+          s.dataset.virtualized = 'false';
+        }
+      } else if (s.dataset.virtualized !== 'true') {
+        s.innerHTML = '';
+        s.dataset.virtualized = 'true';
+      }
+    });
+  }
+
+  // Generate dot indicators (clear duplicates first)
+  dotsContainer.innerHTML = '';
   slides.forEach(function(s, i) {
     var dot = document.createElement('div');
     dot.className = 'dot' + (s.classList.contains('chapter-title') ? ' mm' : '');
@@ -6230,6 +6250,7 @@ html, body {
   window.go = function(idx) {
     if (idx < 0 || idx >= total) return;
     current = idx;
+    virtualize(idx);
     container.style.transform = 'translateX(-' + (idx * 100) + 'vw)';
     slides[idx].scrollTop = 0;
     progress.style.width = ((idx + 1) / total) * 100 + '%';
