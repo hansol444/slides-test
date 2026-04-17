@@ -6190,6 +6190,7 @@ html, body {
     progress.style.width = ((idx + 1) / total) * 100 + '%';
     pageCurrent.textContent = idx + 1;
     currentSection.textContent = slides[idx].dataset.sectionLabel || '';
+    if (typeof syncComments === 'function') syncComments(idx);
     dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
     prevBtn.disabled = idx === 0;
     nextBtn.disabled = idx === total - 1;
