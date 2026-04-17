@@ -6197,7 +6197,8 @@ html, body {
 
 <script>
 (function() {
-  const slides = document.querySelectorAll('.slide');
+  var slides = document.querySelectorAll('.slide');
+  window._slides = slides;
   const total = slides.length;
   const container = document.getElementById('slides');
   const progress = document.getElementById('progress');
@@ -6217,6 +6218,7 @@ html, body {
   // === Virtualization: cache slide content, render only nearby ===
   var slideCache = [];
   slides.forEach(function(s, i) { slideCache[i] = s.innerHTML; });
+  window._slideCache = slideCache;
 
   function virtualize(idx) {
     var RANGE = 1;
@@ -6417,22 +6419,23 @@ function ghEncode(str) {
 // === Push (GitHub API) ===
 function saveAndPush() {
   if (!ensureToken()) return;
+  var sl = window._slides;
+  var sc = window._slideCache;
   // 수정된 슬라이드를 캐시에 반영
-  slides.forEach(function(s, i) {
+  sl.forEach(function(s, i) {
     if (s.innerHTML && s.dataset.virtualized !== 'true') {
-      slideCache[i] = s.innerHTML;
+      sc[i] = s.innerHTML;
     }
   });
   // 전체 슬라이드를 캐시에서 조립
   var fullMain = '';
-  slides.forEach(function(s, i) {
-    var cls = s.className;
+  sl.forEach(function(s, i) {
     var attrs = '';
     for (var a = 0; a < s.attributes.length; a++) {
       var at = s.attributes[a];
       if (at.name !== 'style') attrs += ' ' + at.name + '="' + at.value + '"';
     }
-    fullMain += '\n  <section' + attrs + '>\n' + slideCache[i] + '\n  </section>\n';
+    fullMain += '\n  <section' + attrs + '>\n' + sc[i] + '\n  </section>\n';
   });
 
   fetch(GH_API + 'index.html', { headers: ghHeaders() })
