@@ -1,1 +1,9 @@
-{"2": [{"author": "임한솔", "text": "디자인 아쉬움", "time": "2026. 4. 17. 오후 4:43:31"}], "test": [{"author": "test", "text": "API test", "time": "2026-04-17"}]}
+{
+  "test": [
+    {
+      "author": "test",
+      "text": "API test",
+      "time": "2026-04-17"
+    }
+  ]
+}
