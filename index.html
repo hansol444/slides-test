@@ -1217,6 +1217,37 @@ html, body {
 }
 .print-break { display: none; }
 
+
+/* --- Comment Panel --- */
+.comment-panel {
+  position: fixed; right: 0; top: var(--nav-h);
+  width: 300px; height: calc(100vh - var(--nav-h) - var(--bottom-h));
+  background: #fff; border-left: 1px solid var(--border);
+  box-shadow: -4px 0 16px rgba(0,0,0,0.08);
+  z-index: 90; display: none; flex-direction: column; font-size: 13px;
+}
+.comment-panel.open { display: flex; }
+.comment-panel-header {
+  padding: 12px 16px; font-weight: 700; font-size: 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center; color: var(--navy);
+}
+.comment-panel-header button { background: none; border: none; font-size: 18px; cursor: pointer; color: var(--muted); }
+.comment-list { flex: 1; overflow-y: auto; padding: 12px 16px; }
+.comment-item {
+  margin-bottom: 12px; padding: 8px 10px; background: var(--bg-alt);
+  border-radius: 6px; border-left: 3px solid var(--accent);
+}
+.comment-item .c-author { font-weight: 700; color: var(--navy); font-size: 12px; }
+.comment-item .c-time { font-size: 10px; color: var(--muted); margin-left: 6px; }
+.comment-item .c-text { margin-top: 4px; color: var(--body); line-height: 1.5; }
+.comment-item .c-del { float: right; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 12px; }
+.comment-item .c-del:hover { color: #ef4444; }
+.comment-input-area { padding: 12px 16px; border-top: 1px solid var(--border); }
+.comment-input-area input { width: 100%; padding: 6px 8px; border: 1px solid var(--border); border-radius: 4px; font-size: 12px; margin-bottom: 6px; }
+.comment-input-area textarea { width: 100%; height: 60px; padding: 6px 8px; border: 1px solid var(--border); border-radius: 4px; font-size: 12px; resize: none; }
+.comment-input-area button { margin-top: 6px; width: 100%; padding: 6px; background: var(--accent); color: #fff; border: none; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; }
+
 </style>
 
 <!-- ��영기획실 additional styles -->
@@ -6150,6 +6181,22 @@ html, body {
   <button class="fullscreen" id="fs" aria-label="Toggle Fullscreen">⚶</button>
 </nav>
 
+
+<div class="comment-panel" id="comment-panel">
+  <div class="comment-panel-header">
+    <span id="comment-title">Comments</span>
+    <button onclick="closeComments()">&times;</button>
+  </div>
+  <div class="comment-list" id="comment-list"></div>
+  <div class="comment-input-area">
+    <input type="text" id="comment-author" placeholder="이름" />
+    <textarea id="comment-text" placeholder="코멘트 입력..."></textarea>
+    <button onclick="addComment()">등록</button>
+  </div>
+</div>
+
+<script type="application/json" id="comments-data">{}</script>
+
 <script>
 (function() {
   const slides = document.querySelectorAll('.slide');
@@ -6336,6 +6383,96 @@ function saveAndPush() {
     alert('로컬 서버 없음. 파일 다운로드됨.\n서버 실행: node push-server.js');
   });
 }
+
+
+// === Comment System ===
+var commentSlide = -1;
+
+function openComments(slideIdx) {
+  commentSlide = slideIdx;
+  var panel = document.getElementById('comment-panel');
+  var title = document.getElementById('comment-title');
+  title.textContent = 'Slide ' + (slideIdx + 1) + ' Comments';
+  panel.classList.add('open');
+  renderComments();
+}
+
+function closeComments() {
+  document.getElementById('comment-panel').classList.remove('open');
+}
+
+function getComments() {
+  var el = document.getElementById('comments-data');
+  try { return JSON.parse(el.textContent || '{}'); } catch(e) { return {}; }
+}
+
+function saveComments(data) {
+  document.getElementById('comments-data').textContent = JSON.stringify(data);
+  hasChanges = true;
+}
+
+function renderComments() {
+  var data = getComments();
+  var list = document.getElementById('comment-list');
+  var items = data[commentSlide] || [];
+  list.innerHTML = items.map(function(c, i) {
+    return '<div class="comment-item">'
+      + '<button class="c-del" onclick="delComment(' + i + ')">&times;</button>'
+      + '<span class="c-author">' + c.author + '</span>'
+      + '<span class="c-time">' + c.time + '</span>'
+      + '<div class="c-text">' + c.text + '</div>'
+      + '</div>';
+  }).join('');
+}
+
+function addComment() {
+  var author = document.getElementById('comment-author').value.trim();
+  var text = document.getElementById('comment-text').value.trim();
+  if (!author || !text) return;
+  var data = getComments();
+  if (!data[commentSlide]) data[commentSlide] = [];
+  data[commentSlide].push({
+    author: author,
+    text: text,
+    time: new Date().toLocaleString('ko-KR')
+  });
+  saveComments(data);
+  document.getElementById('comment-text').value = '';
+  renderComments();
+  updateBadges();
+}
+
+function delComment(idx) {
+  var data = getComments();
+  if (data[commentSlide]) {
+    data[commentSlide].splice(idx, 1);
+    if (data[commentSlide].length === 0) delete data[commentSlide];
+    saveComments(data);
+    renderComments();
+    updateBadges();
+  }
+}
+
+function updateBadges() {
+  var data = getComments();
+  document.querySelectorAll('.slide').forEach(function(s, i) {
+    var badge = s.querySelector('.comment-badge');
+    if (!badge) {
+      badge = document.createElement('div');
+      badge.className = 'comment-badge';
+      badge.onclick = function(e) { e.stopPropagation(); openComments(i); };
+      s.style.position = 'relative';
+      s.appendChild(badge);
+    }
+    var count = (data[i] || []).length;
+    badge.textContent = count > 0 ? count : '💬';
+    badge.style.display = 'flex';
+    badge.style.background = count > 0 ? '#ef4444' : 'var(--muted)';
+  });
+}
+
+// Init badges
+setTimeout(updateBadges, 500);
 
 </script>
 
